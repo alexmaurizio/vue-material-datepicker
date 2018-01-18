@@ -61,7 +61,7 @@
     mounted() {
       moment.locale(this.lang);
       if (this.alwaysShow) {
-        showDatepicker();
+        this.showDatepicker();
       }
     },
     methods: {

@@ -14,6 +14,32 @@ If you have some issues or if you want to contribute, feel free to email me to !
 
 email : grangerbastien@gmail.com
 
+**Fork Info**
+
+email: info@alexmaurizio.com
+
+
+# Installation
+
+## npm
+
+~~npm install vue-datepicker~~
+
+Original version can be found via:
+```shell
+$ npm install vue-material-datepicker
+```
+
+Do not use the NPM Version! Install directly from GitHub! 
+
+NPM Version is not up-to-date and does not work correctly!
+
+
+```shell
+"vue-material-datepicker": "git://github.com/alexmaurizio/vue-material-datepicker.git",
+```
+Add this in package.json, then run ```npm install```
+
 # Demo
 
 ## Simple portrait
@@ -41,23 +67,6 @@ email : grangerbastien@gmail.com
 
 ![doubled years landscape](https://s3-eu-west-1.amazonaws.com/npm-images/vue-material-datepicker/landscape-double-years.png)
 
-
-# Installation
-
-## npm
-
-~~npm install vue-datepicker~~
-```shell
-$ npm install vue-datepicker
-```
-
-Install directly from GitHub! NPM Version is not up-to-date and does not work correctly!
-
-
-```shell
-"vue-material-datepicker": "git://github.com/alexmaurizio/vue-material-datepicker.git",
-```
-Add this in package.json, then run ```npm install```
 
 # Requirements
 
