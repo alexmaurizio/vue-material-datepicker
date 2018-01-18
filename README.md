@@ -4,6 +4,8 @@ This datepicker is a fully customisable Vue(v2.1.6) version of the [material-ui 
 
 See below to discover all customisable components.
 
+NOTE: This is a fork - Version released on NPM is **NOT UP TO DATE** and does not work correctly!
+
 # Contact
 
 Please give me some feedbacks to improve it !
@@ -44,11 +46,22 @@ email : grangerbastien@gmail.com
 
 ## npm
 
+~~npm install vue-datepicker~~
 ```shell
 $ npm install vue-datepicker
 ```
 
+Install directly from GitHub! NPM Version is not up-to-date and does not work correctly!
+
+
+```shell
+"vue-material-datepicker": "git://github.com/alexmaurizio/vue-material-datepicker.git",
+```
+Add this in package.json, then run ```npm install```
+
 # Requirements
+
+Moment-range added as a dependency, no need to install separately
 
 [moment^2.14.1](http://momentjs.com/)
 
