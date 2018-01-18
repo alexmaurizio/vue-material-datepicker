@@ -10,9 +10,9 @@
 
     <input type="hidden" :id="id" :name="name" :value="date_raw">
 
-    <datepicker-agenda :disable-passed-days="disablePassedDays" :doubled="doubled" :disabled-days="disabledDays"
-                       :lang="lang" :orientation="orientation" :show="isShow" @change="selectDate"
-                       @hide="hideDatePicker" @cancel="cancelDateSelection">
+    <datepicker-agenda :disable-passed-days="disablePassedDays" :doubled="doubled" :displayHeader="displayHeader"
+                       :disabled-days="disabledDays" :lang="lang" :orientation="orientation" :show="isShow"
+                       :roundStyle="roundStyle" @change="selectDate" @hide="hideDatePicker" @cancel="cancelDateSelection">
     </datepicker-agenda>
   </div>
 </template>
@@ -40,7 +40,9 @@
       lang: {type: String, default: 'en'},
       name: {type: String, default: 'datepicker'},
       orientation: {type: String, default: 'portrait'},
-      alwaysShow: {type: Boolean, default: false}
+      alwaysShow: {type: Boolean, default: false},
+      displayHeader: {type: Boolean, default: true},
+      roundStyle: {type: Boolean, default: true}
     },
     data() {
       return {
