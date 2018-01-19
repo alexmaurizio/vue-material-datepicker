@@ -317,6 +317,10 @@
       margin-left: 205px;
     }
   }
+
+  .hiddenActions {
+    visibility: hidden;
+  }
 </style>
 
 <template>
@@ -393,7 +397,7 @@
           </div>
         </div>
 
-        <div class="datepicker-actions" v-if="!alwaysShow">
+        <div class="datepicker-actions" :class="{hiddenActions: alwaysShow}">
           <button @click="cancel()">{{ language[1] }}</button>
           <button @click="submitDay()">{{ language[0] }}</button>
         </div>
