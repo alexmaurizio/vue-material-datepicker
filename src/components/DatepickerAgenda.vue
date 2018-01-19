@@ -20,17 +20,17 @@
   }
 
   .datepicker {
-    position: absolute;
+    position: relative;
+    margin: auto;
     width: 315px;
-    top: 100%;
     background-color: #ffffff;
-    -webkit-box-shadow: 5px 22px 95px -14px rgba(0, 0, 0, 1);
-    -moz-box-shadow: 5px 22px 95px -14px rgba(0, 0, 0, 1);
-    box-shadow: 5px 22px 95px -14px rgba(0, 0, 0, 1);
     color: #333;
     font-size: 16px;
     font-weight: 400;
     z-index: 10000;
+    -webkit-box-shadow: 0 0 2px 1px lightgray;
+    -moz-box-shadow: 0 0 2px 1px lightgray;
+    box-shadow: 0 0 2px 1px lightgray;
 
     &.double {
       width: 630px;
@@ -43,6 +43,16 @@
     &.landscape {
       width: 520px;
     }
+  }
+
+  // Floating Mod
+  .floating {
+    position: absolute;
+    top: 100%;
+    margin: unset;
+    -webkit-box-shadow: 5px 22px 95px -14px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 5px 22px 95px -14px rgba(0, 0, 0, 1);
+    box-shadow: 5px 22px 95px -14px rgba(0, 0, 0, 1);
   }
 
   .datepicker-header {
@@ -312,7 +322,7 @@
 
 <template>
   <transition name="datepicker-slide">
-    <div class="datepicker" :class="[isDoubled, classOrientation]" @click.stop v-if="show">
+    <div class="datepicker" :class="{isDoubled, classOrientation, floating: alwaysShow}" @click.stop v-if="show">
 
       <div class="datepicker-header" :class="[classOrientation]" v-if="displayHeader">
         <div class="datepicker-year" @click="showOrHideYears">
@@ -417,6 +427,7 @@
       lang: {type: String, default: 'en'},
       orientation: {type: String, default: 'portrait'},
       show: {type: Boolean, required: true},
+      alwaysShow: {type: Boolean, default: false},
       displayHeader: {type: Boolean, default: true},
       roundStyle: {type: Boolean, default: true}
     },

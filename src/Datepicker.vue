@@ -12,7 +12,8 @@
 
     <datepicker-agenda :disable-passed-days="disablePassedDays" :doubled="doubled" :displayHeader="displayHeader"
                        :disabled-days="disabledDays" :lang="lang" :orientation="orientation" :show="isShow"
-                       :roundStyle="roundStyle" @change="selectDate" @hide="hideDatePicker" @cancel="cancelDateSelection">
+                       :roundStyle="roundStyle" :alwaysShow="alwaysShow" @change="selectDate" @hide="hideDatePicker"
+                       @cancel="cancelDateSelection">
     </datepicker-agenda>
   </div>
 </template>
