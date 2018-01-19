@@ -321,9 +321,9 @@
 
 <template>
   <transition name="datepicker-slide">
-    <div class="datepicker" :class="[isDoubled, classOrientation, {floating: alwaysShow}]" @click.stop v-if="show">
+    <div class="datepicker" :class="{floating: !alwaysShow, double: doubled, landscape: isLandscape}" @click.stop v-if="show">
 
-      <div class="datepicker-header" :class="[classOrientation]" v-if="displayHeader">
+      <div class="datepicker-header" :class="{landscape: isLandscape}" v-if="displayHeader">
         <div class="datepicker-year" @click="showOrHideYears">
           <transition-group name="slideh">
           <span v-for="year in [year]" :class="dayDirection" :key="year">
@@ -331,7 +331,7 @@
                         </span>
           </transition-group>
         </div>
-        <div class="datepicker-date" :class="[classOrientation]">
+        <div class="datepicker-date" :class="{landscape: isLandscape}">
           <transition-group name="slideh">
           <span v-for="dateFormatted in [dateFormatted]" :class="[dayDirection]" :key="dateFormatted">
                             {{ dateFormatted }}
@@ -340,8 +340,8 @@
         </div>
       </div>
 
-      <div class="datepicker-body" :class="[classOrientation]">
-        <div class="datepicker-controls" :class="[isDoubled, classOrientation]">
+      <div class="datepicker-body" :class="{landscape: isLandscape}">
+        <div class="datepicker-controls" :class="{double: doubled, landscape: isLandscape}">
           <button class="datepicker-next" @click="nextMonth">
             <svg class="datepicker-arrow" xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                  viewBox="0.5 900.5 30 30" enable-background="new 0.5 900.5 30 30">
@@ -385,7 +385,7 @@
           </div>
         </div>
 
-        <div class="datepicker-years" :class="[isDoubled, classOrientation]" v-show="yearsVisible" transition="fade">
+        <div class="datepicker-years" :class="{double: doubled, landscape: isLandscape}" v-show="yearsVisible" transition="fade">
           <div class="datepicker-years-content">
             <div class="datepicker-year" v-for="year in years" :class="classYear(year)" @click="selectYear(year)">
               {{ year.year() }}
@@ -462,12 +462,8 @@
           return this.date.format('dddd') + ', ' + this.date.format('MMM DD');
         return this.date.format('dddd DD MMM');
       },
-      classOrientation() {
-        return this.orientation;
-      },
-      isDoubled() {
-        if (this.doubled) return 'double';
-        return '';
+      isLandscape() {
+        return this.orientation === 'landscape'
       },
       language() {
         let tmp = ['ok', 'cancel'];
