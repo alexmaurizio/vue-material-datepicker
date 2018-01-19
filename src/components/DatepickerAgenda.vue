@@ -45,7 +45,6 @@
     }
   }
 
-  // Floating Mod
   .floating {
     position: absolute;
     top: 100%;
@@ -322,7 +321,7 @@
 
 <template>
   <transition name="datepicker-slide">
-    <div class="datepicker" :class="{isDoubled, classOrientation, floating: alwaysShow}" @click.stop v-if="show">
+    <div class="datepicker" :class="[isDoubled, classOrientation, {floating: alwaysShow}]" @click.stop v-if="show">
 
       <div class="datepicker-header" :class="[classOrientation]" v-if="displayHeader">
         <div class="datepicker-year" @click="showOrHideYears">
