@@ -393,7 +393,7 @@
           </div>
         </div>
 
-        <div class="datepicker-actions">
+        <div class="datepicker-actions" v-if="!alwaysShow">
           <button @click="cancel()">{{ language[1] }}</button>
           <button @click="submitDay()">{{ language[0] }}</button>
         </div>
@@ -540,6 +540,9 @@
           this.classDirection = 'off';
           this.setClassDirection(newDate);
           this.date = newDate.clone();
+
+          // Also immediately submit if AlwaysShow is on
+          if (this.alwaysShow) this.submitDay();
         }
       },
       selectYear(date) {
